@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/home/views/book_details_view.dart';
 import '../../features/home/views/home_view.dart';
+import '../../features/search/presentation/views/search_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
 
 abstract class AppRouter {
@@ -17,32 +19,24 @@ abstract class AppRouter {
           return const SplashView();
         },
       ),
-
       GoRoute(
         path: homeViewPath,
         builder: (BuildContext context, GoRouterState state) {
           return const HomeView();
         },
       ),
-      //
-      // GoRoute(
-      //   path: BookDetailsViewPath,
-      //   builder: (BuildContext context, GoRouterState state) {
-      //     return BlocProvider(
-      //         create: (BuildContext context) =>  SimillarBookCubit(
-      //             getIt.get<HomeRepoImpl>()
-      //         ),
-      //         child:  BookDetailsView(bookModel: state.extra as BookModel,
-      //         ));
-      //   },
-      // ),
-      //
-      // GoRoute(
-      //   path: SearcgViewPath,
-      //   builder: (BuildContext context, GoRouterState state) {
-      //     return const SerchView();
-      //   },
-      // ),
+      GoRoute(
+        path: bookDetailsViewPath,
+        builder: (BuildContext context, GoRouterState state) {
+          return const BookDetailsView();
+        },
+      ),
+      GoRoute(
+        path: searchViewPath,
+        builder: (BuildContext context, GoRouterState state) {
+          return const SearchView();
+        },
+      ),
     ],
   );
 }

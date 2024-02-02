@@ -12,7 +12,7 @@ class CustomBookItem extends StatelessWidget {
     return ClipRRect(
         borderRadius: BorderRadius.circular(16),
         child: AspectRatio(
-          aspectRatio: 2.7 / 4,
+          aspectRatio: 1.6 / 2,
           child: Container(
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),

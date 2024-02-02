@@ -5,11 +5,14 @@ import 'package:untitled/core/extention/spacing.dart';
 import '../../../../../core/utils/styles.dart';
 
 class BookRatting extends StatelessWidget {
-  const BookRatting({Key? key}) : super(key: key);
-
+  const BookRatting(
+      {Key? key, this.mainAxisAlignment = MainAxisAlignment.start})
+      : super(key: key);
+  final MainAxisAlignment mainAxisAlignment;
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: mainAxisAlignment,
       children: [
         const Icon(
           FontAwesomeIcons.solidStar,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:untitled/core/extention/spacing.dart';
 
+import '../../../../core/utils/app_router.dart';
 import '../../../../core/utils/assets.dart';
 import '../../../../core/utils/styles.dart';
 import 'book_ratting.dart';
@@ -10,7 +12,9 @@ class BestSellerListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        GoRouter.of(context).push(AppRouter.bookDetailsViewPath);
+      },
       child: SizedBox(
         height: 120,
         child: Row(
