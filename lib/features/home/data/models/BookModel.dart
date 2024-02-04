@@ -1,6 +1,6 @@
 import 'package:untitled/features/home/domain_layer/entities/book_entity.dart';
 
-class Book extends BookEntity {
+class BookModel extends BookEntity {
   String kind;
   String id;
   String etag;
@@ -10,7 +10,7 @@ class Book extends BookEntity {
   AccessInfo accessInfo;
   SearchInfo searchInfo;
 
-  Book({
+  BookModel({
     required this.kind,
     required this.id,
     required this.etag,
@@ -27,8 +27,8 @@ class Book extends BookEntity {
             rating: volumeInfo!.averageRating,
             title: volumeInfo.title!);
 
-  factory Book.fromJson(Map<String, dynamic> json) {
-    return Book(
+  factory BookModel.fromJson(Map<String, dynamic> json) {
+    return BookModel(
       kind: json['kind'],
       id: json['id'],
       etag: json['etag'],

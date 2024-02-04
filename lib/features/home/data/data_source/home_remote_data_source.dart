@@ -1,4 +1,6 @@
+import '../../../../core/utils/api_service.dart';
 import '../../domain_layer/entities/book_entity.dart';
+import '../models/BookModel.dart';
 
 abstract class HomeRepoDataSource {
   Future<List<BookEntity>> fetchFeaturedBooks();
@@ -6,10 +8,17 @@ abstract class HomeRepoDataSource {
 }
 
 class HomeRepoDataSourceImpl extends HomeRepoDataSource {
+  final ApiService apiService;
+
+  HomeRepoDataSourceImpl({required this.apiService});
+
   @override
-  Future<List<BookEntity>> fetchFeaturedBooks() {
-    // TODO: implement fetchFeaturedBooks
-    throw UnimplementedError();
+  Future<List<BookEntity>> fetchFeaturedBooks() async {
+    var data = await apiService.get(
+        endPoint: 'volumes?Filtering=free-ebooks&q=programming');
+    List<BookEntity> books = parse(data);
+
+    return books;
   }
 
   @override
@@ -17,4 +26,12 @@ class HomeRepoDataSourceImpl extends HomeRepoDataSource {
     // TODO: implement fetchNewestBooks
     throw UnimplementedError();
   }
+}
+
+List<BookEntity> parse(Map<String, dynamic> data) {
+  List<BookEntity> books = [];
+  for (var bookMap in data['result']) {
+    books.add(BookModel.fromJson(bookMap));
+  }
+  return books;
 }
