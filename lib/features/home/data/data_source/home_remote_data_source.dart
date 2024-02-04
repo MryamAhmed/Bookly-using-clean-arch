@@ -22,9 +22,12 @@ class HomeRepoDataSourceImpl extends HomeRepoDataSource {
   }
 
   @override
-  Future<List<BookEntity>> fetchNewestBooks() {
-    // TODO: implement fetchNewestBooks
-    throw UnimplementedError();
+  Future<List<BookEntity>> fetchNewestBooks() async {
+    var data = await apiService.get(
+        endPoint: 'volumes?Filtering=free-ebooks&Sorting=newest&q=programming');
+    List<BookEntity> books = parse(data);
+
+    return books;
   }
 }
 
