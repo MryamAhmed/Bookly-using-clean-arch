@@ -1,4 +1,7 @@
+import 'package:untitled/consts.dart';
+
 import '../../../../core/utils/api_service.dart';
+import '../../../../core/utils/function/save_data_to_box.dart';
 import '../../domain_layer/entities/book_entity.dart';
 import '../models/BookModel.dart';
 
@@ -18,6 +21,8 @@ class HomeRepoDataSourceImpl extends HomeRepoDataSource {
     var data = await apiService.get(
         endPoint: 'volumes?Filtering=free-ebooks&q=programming');
     List<BookEntity> books = parse(data);
+
+    saveDataToLocal(books, kFeaturedBox);
 
     return books;
   }
