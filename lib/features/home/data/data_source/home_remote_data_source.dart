@@ -33,6 +33,8 @@ class HomeRepoDataSourceImpl extends HomeRepoDataSource {
         endPoint: 'volumes?Filtering=free-ebooks&Sorting=newest&q=programming');
     List<BookEntity> books = parse(data);
 
+    saveDataToLocal(books, kNewestBox);
+
     return books;
   }
 }
