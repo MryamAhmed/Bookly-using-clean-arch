@@ -5,13 +5,13 @@ import '../../../../core/utils/function/save_data_to_box.dart';
 import '../../domain_layer/entities/book_entity.dart';
 import '../models/BookModel.dart';
 
-abstract class HomeRepoDataSource {
+abstract class HomeRemoteDataSource {
   Future<List<BookEntity>> fetchFeaturedBooks();
 
   Future<List<BookEntity>> fetchNewestBooks();
 }
 
-class HomeRepoDataSourceImpl extends HomeRepoDataSource {
+class HomeRepoDataSourceImpl extends HomeRemoteDataSource {
   final ApiService apiService;
 
   HomeRepoDataSourceImpl({required this.apiService});
