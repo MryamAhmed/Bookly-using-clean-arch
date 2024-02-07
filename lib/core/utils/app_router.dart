@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../features/home/views/book_details_view.dart';
-import '../../features/home/views/home_view.dart';
+import '../../features/home/presentation/views/book_details_view.dart';
+import '../../features/home/presentation/views/home_view.dart';
 import '../../features/search/presentation/views/search_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
 

@@ -2,7 +2,7 @@ import 'package:untitled/consts.dart';
 
 import '../../../../core/utils/api_service.dart';
 import '../../../../core/utils/function/save_data_to_box.dart';
-import '../../domain_layer/entities/book_entity.dart';
+import '../../domain/entities/book_entity.dart';
 import '../models/BookModel.dart';
 
 abstract class HomeRemoteDataSource {

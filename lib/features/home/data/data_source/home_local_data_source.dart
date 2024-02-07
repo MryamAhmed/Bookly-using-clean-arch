@@ -1,7 +1,7 @@
 import 'package:hive/hive.dart';
 import 'package:untitled/consts.dart';
 
-import '../../domain_layer/entities/book_entity.dart';
+import '../../domain/entities/book_entity.dart';
 
 abstract class HomeLocalDataSource {
   List<BookEntity> fetchFeaturedBooks();

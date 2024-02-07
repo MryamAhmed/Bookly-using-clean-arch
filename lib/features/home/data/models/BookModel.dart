@@ -1,4 +1,4 @@
-import 'package:untitled/features/home/domain_layer/entities/book_entity.dart';
+import '../../domain/entities/book_entity.dart';
 
 class BookModel extends BookEntity {
   String kind;

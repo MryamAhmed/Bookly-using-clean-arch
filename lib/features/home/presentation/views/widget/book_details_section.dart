@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/core/extention/spacing.dart';
 
-import '../../../../core/utils/styles.dart';
+import '../../../../../core/utils/styles.dart';
 import 'book_action.dart';
 import 'book_ratting.dart';
 import 'custom_book_item.dart';

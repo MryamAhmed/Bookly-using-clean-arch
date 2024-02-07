@@ -3,8 +3,9 @@ import 'package:dio/dio.dart';
 import 'package:untitled/core/errors/failure.dart';
 import 'package:untitled/features/home/data/data_source/home_local_data_source.dart';
 import 'package:untitled/features/home/data/data_source/home_remote_data_source.dart';
-import 'package:untitled/features/home/domain_layer/entities/book_entity.dart';
-import 'package:untitled/features/home/domain_layer/repos/home_repo.dart';
+
+import '../../domain/entities/book_entity.dart';
+import '../../domain/repos/home_repo.dart';
 
 class HomeRepoImpl extends HomeRepo {
   final HomeRemoteDataSource homeRemoteDataSource;

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:untitled/core/extention/spacing.dart';
 
-import '../../../../core/utils/app_router.dart';
-import '../../../../core/utils/assets.dart';
-import '../../../../core/utils/styles.dart';
+import '../../../../../core/utils/app_router.dart';
+import '../../../../../core/utils/assets.dart';
+import '../../../../../core/utils/styles.dart';
 import 'book_ratting.dart';
 
 class BestSellerListViewItem extends StatelessWidget {

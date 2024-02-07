@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/assets.dart';
+import '../../../../../core/utils/assets.dart';
 
 class CustomBookItem extends StatelessWidget {
   const CustomBookItem({
