@@ -11,7 +11,10 @@ class HomeRepoImpl extends HomeRepo {
   final HomeRemoteDataSource homeRemoteDataSource;
   final HomeLocalDataSource homeLocalDataSource;
 
-  HomeRepoImpl(this.homeRemoteDataSource, this.homeLocalDataSource);
+  HomeRepoImpl(
+    this.homeRemoteDataSource,
+    this.homeLocalDataSource,
+  );
 
   @override
   Future<Either<Failure, List<BookEntity>>> fetchBooks() async {
