@@ -8,6 +8,7 @@ import 'package:untitled/features/home/domain/use_cases/fetch_newest_books_use_c
 import 'consts.dart';
 import 'core/utils/app_router.dart';
 import 'core/utils/setup_service_locator.dart';
+import 'core/utils/simple_bloc_observer.dart';
 import 'features/home/domain/entities/book_entity.dart';
 import 'features/home/domain/use_cases/fetch_featured_books_use_case.dart';
 import 'features/home/presentation/manager/featured_books/featured_books_cubit.dart';
@@ -18,6 +19,8 @@ void main() async {
   Hive.registerAdapter(BookEntityAdapter());
   await Hive.openBox<BookEntity>(kFeaturedBox);
   await Hive.openBox<BookEntity>(kNewestBox);
+
+  Bloc.observer = SimpleBlocObserver();
 
   runApp(BooklyApp());
 }
