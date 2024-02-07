@@ -41,7 +41,7 @@ class HomeRepoImpl extends HomeRepo {
       booksList = await homeRemoteDataSource.fetchNewestBooks();
       return right(booksList);
     } catch (e) {
-      if (e is DioError) {
+      if (e is DioException) {
         return Left(ServerFailure.diorError(e));
       }
       return Left(ServerFailure(e.toString()));
