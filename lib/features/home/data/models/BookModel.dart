@@ -44,7 +44,7 @@ class BookModel extends BookEntity {
 class VolumeInfo {
   String title;
   String? subtitle;
-  List<String> authors;
+  List<dynamic> authors;
   String publisher;
   String publishedDate;
   String description;
@@ -92,7 +92,7 @@ class VolumeInfo {
     return VolumeInfo(
       title: json['title'],
       subtitle: json['subtitle'],
-      authors: List<String>.from(json['authors']),
+      authors: ((json['authors'] as List<dynamic>)),
       publisher: json['publisher'],
       publishedDate: json['publishedDate'],
       description: json['description'],

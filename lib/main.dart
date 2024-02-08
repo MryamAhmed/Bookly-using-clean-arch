@@ -15,6 +15,7 @@ import 'features/home/presentation/manager/featured_books/featured_books_cubit.d
 import 'features/home/presentation/manager/newest_books/newest_books_cubit.dart';
 
 void main() async {
+  setup();
   await Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
   await Hive.openBox<BookEntity>(kFeaturedBox);
@@ -36,7 +37,7 @@ class BooklyApp extends StatelessWidget {
           create: (context) {
             return FeaturedBooksCubit(
               FetchFeaturedBooksUseCase(getIt.get<HomeRepoImpl>()),
-            );
+            )..fetchFeaturedBooks();
           },
         ),
         BlocProvider(
