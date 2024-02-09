@@ -44,7 +44,7 @@ class BookModel extends BookEntity {
 class VolumeInfo {
   String title;
   String? subtitle;
-  List<dynamic> authors;
+  List<String>? authors;
   String publisher;
   String publishedDate;
   String description;
@@ -52,7 +52,7 @@ class VolumeInfo {
   ReadingModes readingModes;
   int pageCount;
   String printType;
-  List<String> categories;
+  List<String>? categories;
   String maturityRating;
   bool allowAnonLogging;
   String contentVersion;
@@ -92,7 +92,9 @@ class VolumeInfo {
     return VolumeInfo(
       title: json['title'],
       subtitle: json['subtitle'],
-      authors: ((json['authors'] as List<dynamic>)),
+      authors: ((json['authors'] as List<dynamic>? ?? []))
+          ?.map((author) => author.toString())
+          .toList(),
       publisher: json['publisher'],
       publishedDate: json['publishedDate'],
       description: json['description'],
@@ -102,7 +104,9 @@ class VolumeInfo {
       readingModes: ReadingModes.fromJson(json['readingModes']),
       pageCount: json['pageCount'],
       printType: json['printType'],
-      categories: List<String>.from(json['categories']),
+      categories: ((json['categories'] as List<dynamic>? ?? []))
+          ?.map((categories) => categories.toString())
+          .toList(),
       maturityRating: json['maturityRating'],
       allowAnonLogging: json['allowAnonLogging'],
       contentVersion: json['contentVersion'],
