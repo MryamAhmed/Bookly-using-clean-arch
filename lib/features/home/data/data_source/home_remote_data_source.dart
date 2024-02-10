@@ -22,11 +22,16 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
     var data = await apiService.get(
         endPoint:
             'volumes?Filtering=free-ebooks&q=programming'); //&startIndex=${pageNumber * 10}
+
+    print('data $data');
+
     List<BookEntity> books = parse(data);
+
+    print('dataaaaa $data');
+    print('data after parsing from repo $books');
 
     saveDataToLocal(books, kFeaturedBox);
 
-    print('data $data');
     return books;
   }
 
@@ -44,8 +49,15 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
 
 List<BookEntity> parse(Map<String, dynamic> data) {
   List<BookEntity> books = [];
-  for (var bookMap in data['result']) {
-    books.add(BookModel.fromJson(bookMap));
+  print('make sure ${data['items']}');
+  if (data['items'] != null) {
+    print('data dont null frm parsing ');
+    for (var bookMap in data['items']) {
+      books.add(BookModel.fromJson(bookMap));
+      print('inside loop');
+    }
+    print('data dont null after parsing ');
   }
+  print('data dont null befor return parsing  $books');
   return books;
 }

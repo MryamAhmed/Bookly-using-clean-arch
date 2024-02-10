@@ -222,7 +222,7 @@ class SaleInfo {
 }
 
 class ListPrice {
-  double amount;
+  double? amount;
   String currencyCode;
 
   ListPrice({

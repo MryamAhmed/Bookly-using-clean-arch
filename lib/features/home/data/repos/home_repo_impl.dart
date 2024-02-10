@@ -1,11 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:untitled/core/errors/failure.dart';
-import 'package:untitled/features/home/data/data_source/home_local_data_source.dart';
 import 'package:untitled/features/home/data/data_source/home_remote_data_source.dart';
 
 import '../../domain/entities/book_entity.dart';
 import '../../domain/repos/home_repo.dart';
+import '../data_source/home_local_data_source.dart';
 
 class HomeRepoImpl extends HomeRepo {
   final HomeRemoteDataSource homeRemoteDataSource;
@@ -27,6 +27,7 @@ class HomeRepoImpl extends HomeRepo {
       }
       booksList = await homeRemoteDataSource
           .fetchFeaturedBooks(); //pageNumber: pageNumber
+      print('data from repo $booksList');
       return right(booksList);
     } catch (e) {
       if (e is DioException) {

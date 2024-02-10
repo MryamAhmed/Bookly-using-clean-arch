@@ -19,6 +19,10 @@ class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
 
     result.fold(
         (l) => {print(l.message), emit(FeaturedBooksFailure(l.message))},
-        (r) => {emit(FeaturedBooksSuccess(r))});
+        (r) => {
+              print('data from cubit ${r}'),
+              print('length from cubit ${r.length}'),
+              emit(FeaturedBooksSuccess(r))
+            });
   }
 }
