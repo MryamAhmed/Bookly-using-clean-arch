@@ -3,7 +3,7 @@ import 'package:untitled/consts.dart';
 import '../../../../core/utils/api_service.dart';
 import '../../../../core/utils/function/save_data_to_box.dart';
 import '../../domain/entities/book_entity.dart';
-import '../models/BookModel.dart';
+import '../models/book_model/book_model.dart';
 
 abstract class HomeRemoteDataSource {
   Future<List<BookEntity>> fetchFeaturedBooks(); //{int pageNumber = 0}
@@ -49,19 +49,14 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
 
 List<BookEntity> parse(Map<String, dynamic> data) {
   List<BookEntity> books = [];
+
   print('make sure ${data['items']}');
-
   if (data['items'] != null) {
-    final List itemsList = data['items'];
-    print("data is => ${BookModel.fromJson((data['items'] as List)[2])}");
-    // for (int i = 0; i < itemsList.length; i++) {
-    //   //i in data['']
-    //   print('index = $i');
-    //   // print('data dont null fromm loop ${data['items']} ');
-    //   books.add(BookModel.fromJson(itemsList[i]));
-    //   print('inside loop');
-    // }
-
+    print('data dont null frm parsing ');
+    for (var bookMap in data['items']) {
+      books.add(BookModel.fromJson(bookMap));
+      print('inside loop');
+    }
     print('data dont null after parsing ');
   }
   print('data dont null befor return parsing  $books');
