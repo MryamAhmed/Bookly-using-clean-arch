@@ -1,14 +1,14 @@
 import '../../domain/entities/book_entity.dart';
 
 class BookModel extends BookEntity {
-  String kind;
-  String id;
-  String etag;
-  String selfLink;
-  VolumeInfo volumeInfo;
-  SaleInfo saleInfo;
-  AccessInfo accessInfo;
-  SearchInfo searchInfo;
+  String? kind;
+  String? id;
+  String? etag;
+  String? selfLink;
+  VolumeInfo? volumeInfo;
+  SaleInfo? saleInfo;
+  AccessInfo? accessInfo;
+  SearchInfo? searchInfo;
 
   BookModel({
     required this.kind,
@@ -27,7 +27,7 @@ class BookModel extends BookEntity {
             rating: volumeInfo!.averageRating,
             title: volumeInfo.title!);
 
-  factory BookModel.fromJson(Map<String, dynamic> json) {
+  factory BookModel.fromJson(dynamic json) {
     return BookModel(
       kind: json['kind'],
       id: json['id'],
@@ -42,26 +42,26 @@ class BookModel extends BookEntity {
 }
 
 class VolumeInfo {
-  String title;
+  String? title;
   String? subtitle;
   List<String>? authors;
-  String publisher;
-  String publishedDate;
-  String description;
+  String? publisher;
+  String? publishedDate;
+  String? description;
   List<IndustryIdentifier> industryIdentifiers;
   ReadingModes readingModes;
-  int pageCount;
-  String printType;
+  num pageCount;
+  String? printType;
   List<String>? categories;
-  String maturityRating;
+  String? maturityRating;
   bool allowAnonLogging;
-  String contentVersion;
+  String? contentVersion;
   PanelizationSummary panelizationSummary;
   ImageLinks imageLinks;
-  String language;
-  String previewLink;
-  String infoLink;
-  String canonicalVolumeLink;
+  String? language;
+  String? previewLink;
+  String? infoLink;
+  String? canonicalVolumeLink;
   num? averageRating;
 
   VolumeInfo({
@@ -88,7 +88,7 @@ class VolumeInfo {
     required this.canonicalVolumeLink,
   });
 
-  factory VolumeInfo.fromJson(Map<String, dynamic> json) {
+  factory VolumeInfo.fromJson(dynamic json) {
     return VolumeInfo(
       title: json['title'],
       subtitle: json['subtitle'],
@@ -122,8 +122,8 @@ class VolumeInfo {
 }
 
 class IndustryIdentifier {
-  String type;
-  String identifier;
+  String? type;
+  String? identifier;
 
   IndustryIdentifier({
     required this.type,
@@ -173,8 +173,8 @@ class PanelizationSummary {
 }
 
 class ImageLinks {
-  String smallThumbnail;
-  String thumbnail;
+  String? smallThumbnail;
+  String? thumbnail;
 
   ImageLinks({
     required this.smallThumbnail,
@@ -190,12 +190,12 @@ class ImageLinks {
 }
 
 class SaleInfo {
-  String country;
-  String saleability;
+  String? country;
+  String? saleability;
   bool isEbook;
   ListPrice listPrice;
   ListPrice retailPrice;
-  String buyLink;
+  String? buyLink;
   List<Offer> offers;
 
   SaleInfo({
@@ -222,8 +222,8 @@ class SaleInfo {
 }
 
 class ListPrice {
-  double? amount;
-  String currencyCode;
+  num? amount;
+  String? currencyCode;
 
   ListPrice({
     required this.amount,
@@ -239,7 +239,7 @@ class ListPrice {
 }
 
 class Offer {
-  int finskyOfferType;
+  num finskyOfferType;
   ListPrice listPrice;
   ListPrice retailPrice;
 
@@ -259,15 +259,15 @@ class Offer {
 }
 
 class AccessInfo {
-  String country;
-  String viewability;
+  String? country;
+  String? viewability;
   bool embeddable;
   bool publicDomain;
-  String textToSpeechPermission;
+  String? textToSpeechPermission;
   Epub epub;
   Pdf pdf;
-  String webReaderLink;
-  String accessViewStatus;
+  String? webReaderLink;
+  String? accessViewStatus;
   bool quoteSharingAllowed;
 
   AccessInfo({
@@ -315,7 +315,7 @@ class Epub {
 
 class Pdf {
   bool isAvailable;
-  String acsTokenLink;
+  String? acsTokenLink;
 
   Pdf({
     required this.isAvailable,
@@ -331,7 +331,7 @@ class Pdf {
 }
 
 class SearchInfo {
-  String textSnippet;
+  String? textSnippet;
 
   SearchInfo({
     required this.textSnippet,
