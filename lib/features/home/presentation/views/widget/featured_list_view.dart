@@ -17,6 +17,7 @@ class FeaturedListview extends StatefulWidget {
 class _FeaturedListviewState extends State<FeaturedListview> {
   // Define a ScrollController
   final ScrollController _scrollController = ScrollController();
+  var isLoading = false;
   var pageNumber = 1;
   @override
   void initState() {
@@ -37,14 +38,17 @@ class _FeaturedListviewState extends State<FeaturedListview> {
     // Calculate the position of the last item in the list
     double position = _scrollController.position.pixels;
     double maxScroll = _scrollController.position.maxScrollExtent;
-    double itemHeight = MediaQuery.of(context).size.height * 0.3;
-    double threshold = maxScroll - (itemHeight * 0.7);
+    double threshold = maxScroll * 0.7;
 
     // Check if the scroll position reaches the threshold
     if (position >= threshold) {
-      // Call your fetchFeaturedBooksRequest function
-      BlocProvider.of<FeaturedBooksCubit>(context)
-          .fetchFeaturedBooks(pageNumber: pageNumber++); //context
+      if (!isLoading) {
+        isLoading = true;
+        // Call your fetchFeaturedBooksRequest function
+        BlocProvider.of<FeaturedBooksCubit>(context)
+            .fetchFeaturedBooks(pageNumber: pageNumber++); //context
+        isLoading = false;
+      }
     }
   }
 
