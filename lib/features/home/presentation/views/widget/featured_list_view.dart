@@ -43,8 +43,6 @@ class _FeaturedListviewState extends State<FeaturedListview> {
     // Check if the scroll position reaches the threshold
     if (position >= threshold) {
       // Call your fetchFeaturedBooksRequest function
-      // You can access widget.books to get the list of books
-      // fetchFeaturedBooksRequest();
       BlocProvider.of<FeaturedBooksCubit>(context)
           .fetchFeaturedBooks(pageNumber: pageNumber++); //context
     }
@@ -64,7 +62,8 @@ class _FeaturedListviewState extends State<FeaturedListview> {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: CustomBookItem(
-              image: widget.books[index].image ?? '',
+              image: widget.books[index].image ??
+                  'http://books.google.com/books/content?id=vZvIzaQbMYwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
             ),
           );
         },
